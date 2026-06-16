@@ -2,52 +2,13 @@ import "./styles.css";
 
 export default function getTemplate() {
   return `
-  <!-- Aside gauche pour le formulaire -->
-    <form id="form-add-contact" class="w-1/3 bg-gray-200 p-6 pb-12">
-      <h2 class="text-xl font-bold mb-4">Add a Contact</h2>
-      <div class="mb-4">
-        <label class="block text-gray-700">Firstname</label>
-        <input
-          type="text"
-          id="input-firstname"
-          class="mt-1 block w-full px-3 py-2 bg-gray-100 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-          placeholder="Alex"
-          required
-        />
-      </div>
-      <div class="mb-4">
-        <label class="block text-gray-700">Lastname</label>
-        <input
-          type="text"
-          id="input-lastname"
-          class="mt-1 block w-full px-3 py-2 bg-gray-100 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-          placeholder="Doe"
-          required
-        />
-      </div>
-      <div class="mb-4">
-        <label class="block text-gray-700">Email</label>
-        <input
-          type="email"
-          id="input-email"
-          class="mt-1 block w-full px-3 py-2 bg-gray-100 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-          placeholder="alex.doe@gmail.com"
-          required
-        />
-      </div>
-      <button
-        type="submit"
-        class="w-full bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-md"
-      >
-        Add
-      </button>
-    </form>
+  <div id="form-section" class="w-1/3 bg-gray-200 self-stretch flex flex-col"></div>
     <!-- Section droite pour la liste des contacts -->
     <section class="w-2/3 p-6">
         <div class="flex justify-between items-center mb-4">
           <h2 class="text-xl font-bold mb-4">Contacts List</h2>
           <p class="text-gray-600 mb-4">
-            Contacts Count : <span class="font-bold">xxx</span>
+            Contacts Count : <span id="contacts-count" class="font-bold"></span>
           </p>
         </div>
 
