@@ -15,6 +15,7 @@ export default function getTemplate() {
         <!-- Filtre de recherche -->
         <div class="mb-4">
           <input
+            id="search-input"
             type="text"
             class="mt-1 block w-full px-3 py-2 bg-gray-100 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
             placeholder="Search a contact"
@@ -25,11 +26,11 @@ export default function getTemplate() {
         <table class="table-auto w-full contacts-table">
           <thead>
             <tr class="bg-gray-200">
-              <th class="text-left p-4 rounded-tl-lg">
+              <th class="sortable-header text-left p-4 rounded-tl-lg cursor-pointer hover:text-indigo-600" data-sort="firstname">
                 <a href="#">Firstname</a>
               </th>
-              <th class="text-left p-4"><a href="#">Lastname</a></th>
-              <th class="text-left p-4">
+              <th class="sortable-header text-left p-4 cursor-pointer hover:text-indigo-600" data-sort="lastname"><a href="#">Lastname</a></th>
+              <th class="sortable-header text-left p-4 cursor-pointer hover:text-indigo-600" data-sort="email">
                 <a href="#">Email</a>
               </th>
               <th class="text-right p-4 rounded-tr-lg">Actions</th>

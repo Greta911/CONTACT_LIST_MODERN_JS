@@ -39,26 +39,25 @@ export default class Contact {
       
       // 2. Si clic sur le bouton Valider (vert)
       else if (e.target.closest(".btn-check")) {
-        // On récupère les valeurs directement
-        this.firstname = this.element.querySelector(".input-firstname").value;
-        this.lastname = this.element.querySelector(".input-lastname").value;
-        this.email = this.element.querySelector(".input-email").value;
+        // 1. On extrait les données du DOM (uniquement le rôle du composant)
+        const updatedData = { 
+          id: this.id, 
+          firstname: this.element.querySelector(".input-firstname").value, 
+          lastname: this.element.querySelector(".input-lastname").value, 
+          email: this.element.querySelector(".input-email").value 
+        };
         
         this.isEditing = false;
-        this.render(); // On repasse en mode normal
 
-        // On appelle le callback pour l'API
+        // 2. On envoie TOUT à la liste. C'est elle qui modifiera la mémoire.
         if (this.onContactUpdate) {
-          this.onContactUpdate({ id: this.id, firstname: this.firstname, lastname: this.lastname, email: this.email });
+          this.onContactUpdate(updatedData);
         }
       }
       //Suppression
       else if (e.target.closest(".btn-delete")) {
         // Avant de supprimer, demander une confirmation
         if (confirm(`Voulez-vous vraiment supprimer ${this.firstname} ${this.lastname} ?`)) {
-          // On retire visuellement la ligne du DOM tout de suite pour l'effet immédiat
-          this.element.remove();
-          
           // On appelle le callback pour le supprimer de l'API et du tableau global
           if (this.onContactDelete) {
             this.onContactDelete(this.id);
